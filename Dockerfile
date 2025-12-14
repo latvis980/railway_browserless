@@ -1,5 +1,5 @@
 FROM ghcr.io/browserless/chromium:latest AS parallel
-RUN apk add --no-cache parallel
+RUN apt-get update && apt-get install -y parallel && rm -rf /var/lib/apt/lists/*
 
 FROM caddy:latest AS caddy
 COPY Caddyfile ./
